@@ -61,6 +61,8 @@
     "validate": "yarn format:check && yarn lint && yarn build && yarn test",
     "package": "vsce package --no-dependencies",
     "deploy": "vsce publish --no-dependencies",
+    "deploy:ovsx": "npx ovsx publish",
+    "deploy:all": "yarn deploy && yarn deploy:ovsx",
     "vscode:prepublish": "yarn build"
   },
   "devDependencies": {

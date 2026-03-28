@@ -12,7 +12,9 @@ Simple textarea in the bottom panel for per-workspace notes. Auto-saves on keyst
 - `yarn validate` — full CI check: format:check + lint + build + test (run before deploying)
 - `yarn test` — integration tests in a real VS Code instance via @vscode/test-cli
 - `yarn package` — build + produce `.vsix` file for local testing
-- `yarn deploy` — publish to VS Code Marketplace (needs VSCE_PAT or will prompt)
+- `yarn deploy` — publish to VS Code Marketplace
+- `yarn deploy:ovsx` — publish to Open VSX (Cursor, etc.)
+- `yarn deploy:all` — publish to both
 
 ## Architecture
 
@@ -73,8 +75,17 @@ These are two separate execution contexts:
 
 ## Publishing
 
-- Publisher: `roid` (https://marketplace.visualstudio.com/manage/publishers/roid)
-- `yarn package` produces a `.vsix` — can be installed locally via `code --install-extension notes-panel-x.y.z.vsix`
-- `yarn deploy` publishes to marketplace via CLI (requires PAT), or upload `.vsix` manually at the publisher management page
+Published to both registries:
+- **VS Code Marketplace:** https://marketplace.visualstudio.com/items?itemName=roid.notes-panel
+- **Open VSX (Cursor etc.):** https://open-vsx.org/extension/roid/notes-panel
+
+Commands:
+- `yarn package` — produces a `.vsix` for local testing
+- `yarn deploy` — publishes to VS Code Marketplace (requires PAT, or upload `.vsix` manually at https://marketplace.visualstudio.com/manage/publishers/roid)
+- `yarn deploy:ovsx` — publishes to Open VSX (reads `OVSX_PAT` env var from `~/.zshrc`)
+- `yarn deploy:all` — publishes to both registries
+
+Notes:
 - `vsce` uses `--no-dependencies` flag because all deps are devDependencies (bundled by esbuild)
 - Icon must be PNG (marketplace rejects SVG)
+- Open VSX namespace `roid` is claimed
