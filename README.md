@@ -1,7 +1,7 @@
-# Notes Panel
+# Simple Notes Panel
 
 <p align="center">
-  <img src="logo.png" alt="Notes Panel" width="128">
+  <img src="icon.png" alt="Simple Notes Panel" width="128">
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
     <img src="https://img.shields.io/visual-studio-marketplace/i/roid.notes-panel" alt="Installs">
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/roidayan/vscode-notes-panel" alt="License">
+    <img src="https://img.shields.io/github/license/roidayan1/vscode-notes-panel" alt="License">
   </a>
 </p>
 

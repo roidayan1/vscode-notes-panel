@@ -1,6 +1,6 @@
 {
   "name": "notes-panel",
-  "displayName": "Notes Panel",
+  "displayName": "Simple Notes Panel",
   "description": "A simple per-workspace notepad in the bottom panel. No formatting, no folders — just a textarea that auto-saves.",
   "version": "0.1.0",
   "publisher": "roid",
@@ -8,7 +8,7 @@
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/roidayan/vscode-notes-panel"
+    "url": "https://github.com/roidayan1/vscode-notes-panel"
   },
   "engines": {
     "vscode": "^1.100.0"

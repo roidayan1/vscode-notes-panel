@@ -1,4 +1,4 @@
-# Notes Panel — VS Code Extension
+# Simple Notes Panel — VS Code Extension
 
 Simple textarea in the bottom panel for per-workspace notes. Auto-saves on keystroke (debounced 200ms). Published to VS Code Marketplace under publisher `roid`.
 
@@ -75,6 +75,6 @@ These are two separate execution contexts:
 
 - Publisher: `roid` (https://marketplace.visualstudio.com/manage/publishers/roid)
 - `yarn package` produces a `.vsix` — can be installed locally via `code --install-extension notes-panel-x.y.z.vsix`
-- `yarn deploy` publishes to marketplace — requires a PAT from Azure DevOps with "All accessible accounts" + "All scopes"
+- `yarn deploy` publishes to marketplace via CLI (requires PAT), or upload `.vsix` manually at the publisher management page
 - `vsce` uses `--no-dependencies` flag because all deps are devDependencies (bundled by esbuild)
 - Icon must be PNG (marketplace rejects SVG)
