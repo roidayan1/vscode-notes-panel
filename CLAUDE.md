@@ -85,6 +85,10 @@ Commands:
 - `yarn deploy:ovsx` — publishes to Open VSX (reads `OVSX_PAT` env var from `~/.zshrc`)
 - `yarn deploy:all` — publishes to both registries
 
+Manual upload (alternative to CLI):
+- **VS Code Marketplace:** https://marketplace.visualstudio.com/manage/publishers/roid
+- **Open VSX:** https://open-vsx.org/user-settings/extensions
+
 Notes:
 - `vsce` uses `--no-dependencies` flag because all deps are devDependencies (bundled by esbuild)
 - Icon must be PNG (marketplace rejects SVG)
