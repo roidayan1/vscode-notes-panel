@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Retain webview context when hidden to eliminate tab-switch delay
+
 ## 0.1.0
 
 - Initial release
