@@ -5,7 +5,9 @@ export function activate(context: vscode.ExtensionContext): void {
   const provider = new NotesProvider(context);
 
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider('notesPanel.notesView', provider),
+    vscode.window.registerWebviewViewProvider('notesPanel.notesView', provider, {
+      webviewOptions: { retainContextWhenHidden: true },
+    }),
   );
 }
 
