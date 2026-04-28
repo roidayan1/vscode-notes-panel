@@ -2,7 +2,7 @@
   "name": "notes-panel",
   "displayName": "Simple Notes Panel",
   "description": "A simple per-workspace notepad in the bottom panel. No formatting, no folders — just a textarea that auto-saves.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "roid",
   "license": "MIT",
   "icon": "icon.png",

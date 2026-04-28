@@ -5,6 +5,7 @@ export function activate(context: vscode.ExtensionContext): void {
   const provider = new NotesProvider(context);
 
   context.subscriptions.push(
+    provider,
     vscode.window.registerWebviewViewProvider('notesPanel.notesView', provider, {
       webviewOptions: { retainContextWhenHidden: true },
     }),
@@ -12,5 +13,5 @@ export function activate(context: vscode.ExtensionContext): void {
 }
 
 export function deactivate(): void {
-  // Nothing to clean up — disposables are handled by VS Code
+  // Disposables are handled by VS Code via context.subscriptions.
 }
