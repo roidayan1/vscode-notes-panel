@@ -195,6 +195,9 @@ suite('GlobalNotesStore', () => {
             resolve(text);
           });
         });
+        // VS Code's FileSystemWatcher attaches asynchronously; give it a moment
+        // before producing the event we want it to observe.
+        await new Promise((r) => setTimeout(r, 250));
         // Simulate a write from another window.
         await vscode.workspace.fs.writeFile(
           vscode.Uri.joinPath(dir, GLOBAL_NOTES_FILE),

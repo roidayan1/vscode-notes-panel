@@ -129,7 +129,7 @@
       cancelAnimationFrame(pendingFrame);
       pendingFrame = 0;
     }
-    if (e && splitter.hasPointerCapture && splitter.hasPointerCapture(e.pointerId)) {
+    if (e && e.pointerId != null && splitter.hasPointerCapture(e.pointerId)) {
       splitter.releasePointerCapture(e.pointerId);
     }
     vscode.postMessage({ type: 'splitter', ratio: currentRatio });
@@ -147,13 +147,8 @@
   splitter.addEventListener('pointermove', onPointerMove);
   splitter.addEventListener('pointerup', endDrag);
   splitter.addEventListener('pointercancel', endDrag);
-  splitter.addEventListener('lostpointercapture', function () {
-    if (!dragging) return;
-    dragging = false;
-    splitter.classList.remove('dragging');
-    vscode.postMessage({ type: 'splitter', ratio: currentRatio });
-    saveState();
-  });
+  // Fallback: capture is sometimes lost without a pointerup (e.g. window blur mid-drag).
+  splitter.addEventListener('lostpointercapture', endDrag);
 
   splitter.addEventListener('keydown', function (e) {
     let next = currentRatio;

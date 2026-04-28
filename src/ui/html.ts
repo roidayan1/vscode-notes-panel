@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { MAX_SPLITTER_RATIO, MIN_SPLITTER_RATIO } from '../constants';
+import { DEFAULT_SPLITTER_RATIO, MAX_SPLITTER_RATIO, MIN_SPLITTER_RATIO } from '../constants';
 import { getNonce } from './nonce';
 
 export function buildEmptyStateHtml(): string {
@@ -22,6 +22,7 @@ export function buildMainHtml(webview: vscode.Webview, extensionUri: vscode.Uri)
   const nonce = getNonce();
   const minPercent = Math.round(MIN_SPLITTER_RATIO * 100);
   const maxPercent = Math.round(MAX_SPLITTER_RATIO * 100);
+  const defaultPercent = Math.round(DEFAULT_SPLITTER_RATIO * 100);
 
   // 'unsafe-inline' is required for style-src so the webview script can update the CSS variable
   // controlling the splitter position via element.style.setProperty('--left-width', ...).
@@ -36,7 +37,7 @@ export function buildMainHtml(webview: vscode.Webview, extensionUri: vscode.Uri)
 <body>
   <div id="container">
     <textarea id="notes-local" aria-label="Workspace notes" placeholder="Type your notes here..." spellcheck="false"></textarea>
-    <div id="splitter" role="separator" aria-orientation="vertical" aria-valuemin="${minPercent}" aria-valuemax="${maxPercent}" aria-valuenow="${minPercent}" aria-label="Resize panes" tabindex="0"></div>
+    <div id="splitter" role="separator" aria-orientation="vertical" aria-valuemin="${minPercent}" aria-valuemax="${maxPercent}" aria-valuenow="${defaultPercent}" aria-label="Resize panes" tabindex="0"></div>
     <textarea id="notes-global" aria-label="Global notes (shared across windows)" placeholder="Global notes (shared across windows)..." spellcheck="false"></textarea>
   </div>
   <script nonce="${nonce}" src="${scriptUri}"></script>

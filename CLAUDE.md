@@ -10,7 +10,8 @@ Two textareas in the bottom panel. Left = per-workspace notes (`notes.txt` in `s
 - `yarn format` — Prettier (write)
 - `yarn format:check` — Prettier (check only, for CI)
 - `yarn validate` — full CI check: format:check + lint + build + test (run before deploying)
-- `yarn test` — integration tests in a real VS Code instance via @vscode/test-cli
+- `yarn test` — integration tests in a real VS Code instance via @vscode/test-cli (compiles `src/test` first)
+- `yarn build:tests` — compile only the test sources to `out/test/` (rarely needed standalone)
 - `yarn package` — build + produce `.vsix` file for local testing
 - `yarn deploy` — publish to VS Code Marketplace
 - `yarn deploy:ovsx` — publish to Open VSX (Cursor, etc.)
